@@ -2738,3 +2738,715 @@ Started GET "/users" for 127.0.0.1 at Mon Oct 31 23:39:53 +0000 2011
   [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '1c616977ed49fc70c77421683de8364bf6ce8de254f21c9f4ec34c8bd6e482ac1fb8aaf14a54d5b7a92797537b060e39c0d6cc47405337893575429575bafaf2' LIMIT 1
 Rendered users/index.html.erb within layouts/application (23.5ms)
 Completed 200 OK in 84ms (Views: 70.7ms | ActiveRecord: 1.3ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+
+
+Started GET "/login" for 127.0.0.1 at Tue Nov 01 21:57:08 +0000 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (7.5ms)
+Rendered user_sessions/new.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 67ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 21:57:11 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (122.1ms)
+Completed 200 OK in 194ms (Views: 129.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/3" for 127.0.0.1 at Tue Nov 01 21:57:29 +0000 2011
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "id"=>"3"}
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (5.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  DELETE FROM "users" WHERE "users"."id" = 3
+Redirected to http://localhost:3000/users
+Completed 302 Found in 74ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 21:57:29 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 31ms (Views: 20.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Tue Nov 01 21:57:30 +0000 2011
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (13.3ms)
+Rendered users/new.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 33ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Nov 01 21:57:38 +0000 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"charles", "password"=>"[FILTERED]"}}
+  [1m[35mSQL (0.3ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('charles')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."persistence_token" = '7305b86e96c1091d0844cda039c16bf066e08c12d8e9e94221c2fe7f673ea485d09737d59187b8d348be41c85cd88d2c0257720044299342eff9257376a3d490') LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "users" ("persistence_token", "username", "created_at", "games_played", "num_sessions", "updated_at", "balance", "password_salt", "games_lost", "games_won", "games_per_session_avg", "cashflow", "crypted_password") VALUES ('7305b86e96c1091d0844cda039c16bf066e08c12d8e9e94221c2fe7f673ea485d09737d59187b8d348be41c85cd88d2c0257720044299342eff9257376a3d490', 'charles', '2011-11-01 21:57:38.143075', 0, 0, '2011-11-01 21:57:38.143075', 1000.0, 'mdwDJlaOHoPoutZU2DIb', 0, 0, 0, 1000.0, '99b33875aa35da3f349facaec86aaba4fe348c6a4261f5715f3aee9318c787e04cdad87266f5fa913c6d6849ea69d5aa15bd3fa2efd6a9f63407a86960cd828c')
+Redirected to http://localhost:3000/users
+Completed 302 Found in 133ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 21:57:38 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '7305b86e96c1091d0844cda039c16bf066e08c12d8e9e94221c2fe7f673ea485d09737d59187b8d348be41c85cd88d2c0257720044299342eff9257376a3d490' LIMIT 1
+Rendered users/index.html.erb within layouts/application (130.7ms)
+Completed 200 OK in 144ms (Views: 133.3ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Tue Nov 01 21:59:51 +0000 2011
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (11.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."persistence_token" = '7305b86e96c1091d0844cda039c16bf066e08c12d8e9e94221c2fe7f673ea485d09737d59187b8d348be41c85cd88d2c0257720044299342eff9257376a3d490' LIMIT 1[0m
+Rendered users/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 32ms (Views: 22.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Nov 01 22:00:00 +0000 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"marcus", "password"=>"[FILTERED]"}}
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Completed 500 Internal Server Error in 74ms
+
+NoMethodError (undefined method `init' for #<Class:0xb6d3ffe8>):
+  app/controllers/users_controller.rb:47:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.5ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Nov 01 22:01:04 +0000 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"marcus", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 20ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/users_controller.rb:47:in `init'
+  app/controllers/users_controller.rb:47:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Nov 01 22:01:45 +0000 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"marcus", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 19ms
+
+NoMethodError (undefined method `save' for [0, 0]:Array):
+  app/controllers/users_controller.rb:50:in `create'
+  app/controllers/users_controller.rb:49:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (57.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (61.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Nov 01 22:02:17 +0000 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"marcus", "password"=>"[FILTERED]"}}
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('marcus')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT 1 FROM "users" WHERE ("users"."persistence_token" = '5f64e54cd6cd5d012804606d3f5e4cc412715c37836348a77eccc5408715ecb9fd54ec818ab7b42549a4089a886f8a6685790d0f76f061864a944037ae8bcf24') LIMIT 1
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."persistence_token" = '7305b86e96c1091d0844cda039c16bf066e08c12d8e9e94221c2fe7f673ea485d09737d59187b8d348be41c85cd88d2c0257720044299342eff9257376a3d490' LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "users" ("games_played", "games_lost", "games_won", "crypted_password", "persistence_token", "cashflow", "username", "games_per_session_avg", "created_at", "updated_at", "password_salt", "num_sessions", "balance") VALUES (0, 0, 0, '61b3649ef4c0e3d7cb4c23e659657a1d33afb91ffb54abea2a23c2915515dd740caf359f6b7f7369ae118211779dd950ef375b931629976d62b332ed6b32be7b', '5f64e54cd6cd5d012804606d3f5e4cc412715c37836348a77eccc5408715ecb9fd54ec818ab7b42549a4089a886f8a6685790d0f76f061864a944037ae8bcf24', 1000.0, 'marcus', 0, '2011-11-01 22:02:17.083803', '2011-11-01 22:02:17.083803', 'ekYH72GAdYwOpsHk2S4', 0, 1000.0)
+Redirected to http://localhost:3000/users
+Completed 302 Found in 119ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:02:17 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '7305b86e96c1091d0844cda039c16bf066e08c12d8e9e94221c2fe7f673ea485d09737d59187b8d348be41c85cd88d2c0257720044299342eff9257376a3d490' LIMIT 1
+Rendered users/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 38ms (Views: 26.5ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/users/15" for 127.0.0.1 at Tue Nov 01 22:05:35 +0000 2011
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "users" WHERE "users"."id" = 15
+Redirected to http://localhost:3000/users
+Completed 302 Found in 77ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:05:35 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '7305b86e96c1091d0844cda039c16bf066e08c12d8e9e94221c2fe7f673ea485d09737d59187b8d348be41c85cd88d2c0257720044299342eff9257376a3d490' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 42ms (Views: 30.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Tue Nov 01 22:05:36 +0000 2011
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (13.5ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '7305b86e96c1091d0844cda039c16bf066e08c12d8e9e94221c2fe7f673ea485d09737d59187b8d348be41c85cd88d2c0257720044299342eff9257376a3d490' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1[0m
+Rendered users/new.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 36ms (Views: 27.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Nov 01 22:05:43 +0000 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"charles", "password"=>"[FILTERED]"}}
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('charles')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."persistence_token" = '42d61f8fd05dd7422fe12b1781d1c14ce5f7277e94e32182cada4c55c13efa46f64aac98871d63dc9b5a9b72610c3481b2240db3a123bec1001370fe0e6ec77c') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '7305b86e96c1091d0844cda039c16bf066e08c12d8e9e94221c2fe7f673ea485d09737d59187b8d348be41c85cd88d2c0257720044299342eff9257376a3d490' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "users" ("games_lost", "games_won", "updated_at", "num_sessions", "cashflow", "created_at", "games_per_session_avg", "games_played", "persistence_token", "username", "balance", "password_salt", "crypted_password") VALUES (0, 0, '2011-11-01 22:05:43.579814', 0, 1000.0, '2011-11-01 22:05:43.579814', 0, 0, '42d61f8fd05dd7422fe12b1781d1c14ce5f7277e94e32182cada4c55c13efa46f64aac98871d63dc9b5a9b72610c3481b2240db3a123bec1001370fe0e6ec77c', 'charles', 1000.0, 'execCpOfYBpalHuG4uwv', '4726dd636d2ec66c95b8ffcab20f6906f0aeb0886553d2193ad225f9353f7673482b3f7b8ce45d9958d73891fce497753550319af02bfd63a8b14752e0fbb0d4')
+Redirected to http://localhost:3000/users
+Completed 302 Found in 91ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:05:43 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '42d61f8fd05dd7422fe12b1781d1c14ce5f7277e94e32182cada4c55c13efa46f64aac98871d63dc9b5a9b72610c3481b2240db3a123bec1001370fe0e6ec77c' LIMIT 1
+Rendered users/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 32ms (Views: 23.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/17" for 127.0.0.1 at Tue Nov 01 22:06:28 +0000 2011
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 17 LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  DELETE FROM "users" WHERE "users"."id" = 17
+Redirected to http://localhost:3000/users
+Completed 302 Found in 137ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:06:28 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '42d61f8fd05dd7422fe12b1781d1c14ce5f7277e94e32182cada4c55c13efa46f64aac98871d63dc9b5a9b72610c3481b2240db3a123bec1001370fe0e6ec77c' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 17 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 44ms (Views: 27.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Tue Nov 01 22:06:29 +0000 2011
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (13.3ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '42d61f8fd05dd7422fe12b1781d1c14ce5f7277e94e32182cada4c55c13efa46f64aac98871d63dc9b5a9b72610c3481b2240db3a123bec1001370fe0e6ec77c' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 17 LIMIT 1[0m
+Rendered users/new.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 35ms (Views: 26.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Nov 01 22:06:36 +0000 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"charles", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 24ms
+
+NoMethodError (undefined method `change_num_sessions' for #<User:0xb6f29a84>):
+  app/controllers/users_controller.rb:45:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Nov 01 22:07:13 +0000 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"charles", "password"=>"[FILTERED]"}}
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('charles')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."persistence_token" = '57782e0a162ef9c0f59c34a821e95e6c6b0288262b8994c0ef7de341f0c70e1611bd71fc61fd78c69b61c932f7ff67ad7b987d61be1f51f12a2598026515d19a') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '42d61f8fd05dd7422fe12b1781d1c14ce5f7277e94e32182cada4c55c13efa46f64aac98871d63dc9b5a9b72610c3481b2240db3a123bec1001370fe0e6ec77c' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 17 LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "users" ("username", "games_lost", "created_at", "password_salt", "games_won", "balance", "persistence_token", "games_per_session_avg", "cashflow", "crypted_password", "num_sessions", "updated_at", "games_played") VALUES ('charles', 0, '2011-11-01 22:07:13.348574', 'jX0ftsZlEzqwGp33Fh2r', 0, 1000.0, '57782e0a162ef9c0f59c34a821e95e6c6b0288262b8994c0ef7de341f0c70e1611bd71fc61fd78c69b61c932f7ff67ad7b987d61be1f51f12a2598026515d19a', 0, 1000.0, 'b61aeed00c821382701d05136fa52e676f7aa9e46dd4064f29eeeadf32ffa0652335180c7bd12cea3d82ac95cdc4e5905602b8a243df6a12faef62b9796c7325', 1, '2011-11-01 22:07:13.348574', 0)
+Redirected to http://localhost:3000/users
+Completed 302 Found in 82ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:07:13 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '57782e0a162ef9c0f59c34a821e95e6c6b0288262b8994c0ef7de341f0c70e1611bd71fc61fd78c69b61c932f7ff67ad7b987d61be1f51f12a2598026515d19a' LIMIT 1
+Rendered users/index.html.erb within layouts/application (65.1ms)
+Completed 200 OK in 80ms (Views: 68.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/18" for 127.0.0.1 at Tue Nov 01 22:09:41 +0000 2011
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "id"=>"18"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  DELETE FROM "users" WHERE "users"."id" = 18
+Redirected to http://localhost:3000/users
+Completed 302 Found in 79ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:09:41 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '57782e0a162ef9c0f59c34a821e95e6c6b0288262b8994c0ef7de341f0c70e1611bd71fc61fd78c69b61c932f7ff67ad7b987d61be1f51f12a2598026515d19a' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 35ms (Views: 23.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Tue Nov 01 22:09:42 +0000 2011
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (11.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '57782e0a162ef9c0f59c34a821e95e6c6b0288262b8994c0ef7de341f0c70e1611bd71fc61fd78c69b61c932f7ff67ad7b987d61be1f51f12a2598026515d19a' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+Rendered users/new.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 36ms (Views: 25.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Nov 01 22:09:49 +0000 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"charles", "password"=>"[FILTERED]"}}
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('charles')) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."persistence_token" = '6916524514e4e06a01165bcd6ac75e9d3f1758744e7f35c61e9443b0ce0034dc98f07caba0ee04d20d30f3eb13b003c7b1d3942c8a8cf9e58dabbf6e9e0bfb37') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '57782e0a162ef9c0f59c34a821e95e6c6b0288262b8994c0ef7de341f0c70e1611bd71fc61fd78c69b61c932f7ff67ad7b987d61be1f51f12a2598026515d19a' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "users" ("balance", "num_sessions", "persistence_token", "cashflow", "username", "games_played", "games_lost", "games_won", "updated_at", "crypted_password", "created_at", "password_salt", "games_per_session_avg") VALUES (1000.0, 1, '6916524514e4e06a01165bcd6ac75e9d3f1758744e7f35c61e9443b0ce0034dc98f07caba0ee04d20d30f3eb13b003c7b1d3942c8a8cf9e58dabbf6e9e0bfb37', 1000.0, 'charles', 0, 0, 0, '2011-11-01 22:09:49.162232', 'cf129120cba2ea7faff2ec46dd137465f9d83e61492f0e2a06a24f1f57d5d8a424d08d075ccdffc61d34d30842f9d665496866bed0c76d63faef8675bc184f3d', '2011-11-01 22:09:49.162232', 'qFip8anmKBVeJaoMENCm', 0)
+Redirected to http://localhost:3000/users
+Completed 302 Found in 71ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:09:49 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '6916524514e4e06a01165bcd6ac75e9d3f1758744e7f35c61e9443b0ce0034dc98f07caba0ee04d20d30f3eb13b003c7b1d3942c8a8cf9e58dabbf6e9e0bfb37' LIMIT 1
+Rendered users/index.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 40ms (Views: 29.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/1" for 127.0.0.1 at Tue Nov 01 22:11:28 +0000 2011
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = 1
+Redirected to http://localhost:3000/users
+Completed 302 Found in 74ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:11:28 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '6916524514e4e06a01165bcd6ac75e9d3f1758744e7f35c61e9443b0ce0034dc98f07caba0ee04d20d30f3eb13b003c7b1d3942c8a8cf9e58dabbf6e9e0bfb37' LIMIT 1
+Rendered users/index.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 35ms (Views: 23.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Tue Nov 01 22:13:20 +0000 2011
+  Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."persistence_token" = '6916524514e4e06a01165bcd6ac75e9d3f1758744e7f35c61e9443b0ce0034dc98f07caba0ee04d20d30f3eb13b003c7b1d3942c8a8cf9e58dabbf6e9e0bfb37' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."persistence_token" = '6916524514e4e06a01165bcd6ac75e9d3f1758744e7f35c61e9443b0ce0034dc98f07caba0ee04d20d30f3eb13b003c7b1d3942c8a8cf9e58dabbf6e9e0bfb37' LIMIT 1
+Redirected to http://localhost:3000/users
+Completed 302 Found in 65ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:13:20 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 34ms (Views: 24.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:13:26 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 37ms (Views: 27.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at Tue Nov 01 22:14:48 +0000 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (5.4ms)
+Rendered user_sessions/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 28ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Tue Nov 01 22:14:59 +0000 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Create User session", "user_session"=>{"username"=>"test", "password"=>"[FILTERED]"}, "authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users".username LIKE 'test') LIMIT 1[0m
+Rendered user_sessions/_form.html.erb (7.5ms)
+Rendered user_sessions/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 32ms (Views: 15.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Tue Nov 01 22:15:19 +0000 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Create User session", "user_session"=>{"username"=>"charles", "password"=>"[FILTERED]"}, "authenticity_token"=>"lN+Tw79z/xnVGswR1NiMJUQp8vJ2ynxrdXRlk7fwzCA=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users".username LIKE 'charles') LIMIT 1
+Redirected to http://localhost:3000/users
+Completed 302 Found in 28ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:15:19 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 19 LIMIT 1
+Rendered users/index.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 39ms (Views: 27.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Tue Nov 01 22:16:22 +0000 2011
+  Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 19 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 19 LIMIT 1
+Redirected to http://localhost:3000/users
+Completed 302 Found in 21ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:16:22 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 77ms (Views: 22.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Tue Nov 01 22:16:27 +0000 2011
+  Processing by UserSessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 15ms
+
+
+Started GET "/login" for 127.0.0.1 at Tue Nov 01 22:16:27 +0000 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (7.5ms)
+Rendered user_sessions/new.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 30ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:17:45 +0000 2011
+
+NoMethodError (undefined method `to_sym' for nil:NilClass):
+  config/routes.rb:63
+  config/routes.rb:1
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:18:23 +0000 2011
+
+NoMethodError (undefined method `to_sym' for nil:NilClass):
+  config/routes.rb:63
+  config/routes.rb:1
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:18:25 +0000 2011
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:18:27 +0000 2011
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:19:01 +0000 2011
+
+ArgumentError (missing :controller):
+  config/routes.rb:64
+  config/routes.rb:1
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:19:03 +0000 2011
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:19:14 +0000 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (6.2ms)
+Rendered user_sessions/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 78ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/loging" for 127.0.0.1 at Tue Nov 01 22:19:26 +0000 2011
+
+ActionController::RoutingError (No route matches "/loging"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Tue Nov 01 22:19:29 +0000 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (5.3ms)
+Rendered user_sessions/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 32ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:19:46 +0000 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (5.6ms)
+Rendered user_sessions/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 24ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:20:12 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 31ms (Views: 21.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:20:47 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 86ms (Views: 24.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:20:49 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 35ms (Views: 25.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:21:17 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 88ms (Views: 27.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:21:25 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 31ms (Views: 21.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:21:29 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 92ms (Views: 26.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:21:30 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 33ms (Views: 21.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:24:16 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 96ms (Views: 84.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:24:50 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 37ms (Views: 27.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:24:56 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 78ms (Views: 68.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at Tue Nov 01 22:25:33 +0000 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (5.9ms)
+Rendered user_sessions/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 25ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:26:50 +0000 2011
+
+ArgumentError (missing :controller):
+  config/routes.rb:63
+  config/routes.rb:1
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:27:02 +0000 2011
+
+ArgumentError (missing :controller):
+  config/routes.rb:63
+  config/routes.rb:1
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:27:04 +0000 2011
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:27:05 +0000 2011
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:27:05 +0000 2011
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:27:56 +0000 2011
+  Processing by UserSessionsController#new as HTML
+  Parameters: {"redirect_to"=>:login}
+Rendered user_sessions/_form.html.erb (5.3ms)
+Rendered user_sessions/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 28ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:27:58 +0000 2011
+  Processing by UserSessionsController#new as HTML
+  Parameters: {"redirect_to"=>:login}
+Rendered user_sessions/_form.html.erb (6.6ms)
+Rendered user_sessions/new.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 36ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:27:59 +0000 2011
+  Processing by UserSessionsController#new as HTML
+  Parameters: {"redirect_to"=>:login}
+Rendered user_sessions/_form.html.erb (5.9ms)
+Rendered user_sessions/new.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 31ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:28:01 +0000 2011
+  Processing by UserSessionsController#new as HTML
+  Parameters: {"redirect_to"=>:login}
+Rendered user_sessions/_form.html.erb (8.4ms)
+Rendered user_sessions/new.html.erb within layouts/application (73.5ms)
+Completed 200 OK in 94ms (Views: 79.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:28:02 +0000 2011
+  Processing by UserSessionsController#new as HTML
+  Parameters: {"redirect_to"=>:login}
+Rendered user_sessions/_form.html.erb (5.4ms)
+Rendered user_sessions/new.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 31ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:28:24 +0000 2011
+  Processing by UserSessionsController#new as HTML
+  Parameters: {"redirect_to"=>"login"}
+Rendered user_sessions/_form.html.erb (5.5ms)
+Rendered user_sessions/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 74ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:28:25 +0000 2011
+  Processing by UserSessionsController#new as HTML
+  Parameters: {"redirect_to"=>"login"}
+Rendered user_sessions/_form.html.erb (5.7ms)
+Rendered user_sessions/new.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 30ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:28:52 +0000 2011
+  Processing by UserSessionsController#new as HTML
+  Parameters: {"redirect_to"=>:login}
+Rendered user_sessions/_form.html.erb (6.4ms)
+Rendered user_sessions/new.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 29ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:28:53 +0000 2011
+  Processing by UserSessionsController#new as HTML
+  Parameters: {"redirect_to"=>:login}
+Rendered user_sessions/_form.html.erb (5.5ms)
+Rendered user_sessions/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 29ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:29:21 +0000 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (5.5ms)
+Rendered user_sessions/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 26ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Tue Nov 01 22:31:27 +0000 2011
+  Processing by UserSessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 17ms
+
+
+Started GET "/login" for 127.0.0.1 at Tue Nov 01 22:31:27 +0000 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (8.6ms)
+Rendered user_sessions/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 31ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 01 22:34:49 +0000 2011
+  Processing by UserSessionsController#start as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at Tue Nov 01 22:34:49 +0000 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (6.1ms)
+Rendered user_sessions/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 30ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 01 22:35:31 +0000 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (62.1ms)
+Completed 200 OK in 74ms (Views: 64.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/14" for 127.0.0.1 at Tue Nov 01 22:35:34 +0000 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 14 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 28ms (Views: 18.1ms | ActiveRecord: 0.2ms)

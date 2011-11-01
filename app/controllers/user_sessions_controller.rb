@@ -88,4 +88,11 @@ class UserSessionsController < ApplicationController
       end
     end
   end
+
+  def start
+    respond_to do |format|
+      format.html { redirect_to(:login, :notice => 'Welcome and Enjoy!') }
+      format.xml  { head :ok }
+    end
+  end
 end

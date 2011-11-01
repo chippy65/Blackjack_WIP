@@ -41,9 +41,7 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    @user.games_played, @user.games_lost, @user.games_won = 0, 0, 0
-    @user.balance, @user.cashflow = 1000, 1000
-    @user.num_sessions, @user.games_per_session_avg = 0, 0
+    @user.init
 
     respond_to do |format|
       if @user.save
