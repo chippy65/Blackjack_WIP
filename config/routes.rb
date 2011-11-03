@@ -63,4 +63,5 @@ resources :users, :user_sessions
 root :to => 'user_sessions#start'
 match 'login' => 'user_sessions#new', :as => :login
 match 'logout' => 'user_sessions#destroy', :as => :logout
+match 'fresh' => 'cardtable#fresh'
 end

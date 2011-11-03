@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   acts_as_authentic
 
+  attr_reader :username
+
   def init
     self.games_played, self.games_lost, self.games_won = 0, 0, 0
     self.balance, self.cashflow = 1000, 1000

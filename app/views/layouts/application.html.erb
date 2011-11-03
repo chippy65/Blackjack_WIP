@@ -12,11 +12,13 @@
       <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
       <%= link_to "Logout", :logout %>
       <%= link_to "Show Players Stats", :users %>
+      <%= link_to "Play New Game", :fresh %>
       <%= current_user.username %>
     <% else %>
       <%= link_to "Register", new_user_path %>
       <%= link_to "Login", :login %>
       <%= link_to "Show Players Stats", :users %>
+      <%= link_to "Play New Game", :fresh %>
     <% end %>
   </div>
 <%= yield %>
