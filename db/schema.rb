@@ -10,10 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111031202143) do
+ActiveRecord::Schema.define(:version => 20111105141459) do
+
+  create_table "cardtables", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "player_id"
+    t.integer  "dealer_id"
+    t.integer  "game_id"
+    t.text     "player"
+    t.text     "dealer"
+    t.text     "deck"
+    t.decimal  "bet"
+  end
 
   create_table "games", :force => true do |t|
-    t.string   "username"
+    t.integer  "user_id"
     t.integer  "session_num"
     t.integer  "game_num"
     t.boolean  "win"
@@ -22,6 +34,12 @@ ActiveRecord::Schema.define(:version => 20111031202143) do
     t.integer  "card_count"
     t.integer  "dealer_count"
     t.datetime "date_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "username"
+  end
+
+  create_table "user_sessions", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

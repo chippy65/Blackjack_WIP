@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   acts_as_authentic
 
-  attr_reader :username
+  has_many :games, :dependent => :destroy
+
+#  attr_accessor :username
 
   def init
     self.games_played, self.games_lost, self.games_won = 0, 0, 0
