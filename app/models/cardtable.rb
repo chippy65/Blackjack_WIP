@@ -9,7 +9,7 @@ class Cardtable < ActiveRecord::Base
   serialize :deck
 
 
-  def startup(theplayer)
+  def startup(thisplayer)
     # Setup its dealer, player and game associations
 
     # Find the dealer record and associate it with this cardtable object
@@ -19,19 +19,28 @@ class Cardtable < ActiveRecord::Base
     self.dealer_record.save
 
     # Associate the cardtable player with the logged in user
-    self.player_record = theplayer
+    self.player_record = thisplayer
     # Update the user information regarding sessions
     self.player_record.num_sessions += 1
     self.player_record.save
 
-    # Create and save a new game object/record
-    @game = self.create_game
-    # Associate the game_id with that saved game object/record
+    # Create a new game object/record but don't save it just yet
+    # as the player may not actually decide to play a game in this session
+    @game = self.build_game
     self.game = @game
+
     # Initialize the game stats for this game
+    # We do this here for statistical purposes as it is legal for a session
+    # tat has no games played
     self.game.user = self.player_record
-    self.game.amount = 200
     self.game.session_num = self.player_record.num_sessions
+    self.game.dealer_session_num = self.dealer_record.num_sessions
+    self.game.game_num, self.game.dealer_game_num = 0, 0
+    self.game.win = false
+    self.game.amount = 0
+    self.game.num_cards, self.game.dealer_num_cards = 0, 0
+    self.game.card_count, self.game.dealer_count = 0, 0
+
     # Save the game here for testing purposes
     self.game.save
 
@@ -73,7 +82,48 @@ class Cardtable < ActiveRecord::Base
     self.player_record.games_played += 1
     self.dealer_record.games_played += 1
 
-    # Assume that
+    # We subtract the bet from the player and add to the dealer
+    # This is in case the player exits the game before it completes
+    # When the game completes naturally, we will take this into consideration
+    # Think of this as the dealer holding the pot while the game is playing
+    self.player_record.balance -= self.bet
+    self.dealer_record.balance += self.bet
+
+    # Similarly, we assume that the player will lost and the dealer will win
+    # in case the game terminates unexpectedly
+    # Again, we will take this into consideration if the game ends normally
+    self.player_record.games_lost += 1
+    self.dealer_record.games_won += 1
+
+    # Update the games per session average for the player and dealer
+    avg = self.player_record.games_played / self.player_record.num_sessions
+    if avg < 1
+      self.player_record.games_per_session_avg = 1
+    else
+      self.player_record.games_per_session_avg = avg.floor
+    end
+    avg = self.dealer_record.games_played / self.dealer_record.num_sessions
+    if avg < 1
+      self.dealer_record.games_per_session_avg = 1
+    else
+      self.dealer_record.games_per_session_avg = avg.floor
+    end
+
+    self.player_record.save
+    self.dealer_record.save
+
+    # Update the game stats
+    self.game.game_num = self.player_record.games_played
+    self.game.dealer_game_num = self.dealer_record.games_played
+
+    self.game.amount = self.bet
+
+    # We will only update the players cards so that a 0 number of cards
+    # for the dealer signifies that the dealer won before playing his hand
+    self.game.num_cards = 2
+    self.game.card_count = 0
+
+    self.game.save
 
   end
 

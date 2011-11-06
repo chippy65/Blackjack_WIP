@@ -11440,3 +11440,624 @@ Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 21:49:10 +0000 2011
 Rendered cardtable/_form.html.erb (1.2ms)
 Rendered cardtable/fresh.html.erb within layouts/application (5.8ms)
 Completed 200 OK in 124ms (Views: 9.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 21:54:03 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "num_sessions" = 54, "updated_at" = '2011-11-06 21:54:04.007897' WHERE "users"."id" = 26
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "num_sessions" = 47, "updated_at" = '2011-11-06 21:54:04.080558' WHERE "users"."id" = 25[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "games" ("card_count", "updated_at", "date_time", "dealer_count", "created_at", "username", "num_cards", "win", "game_num", "session_num", "user_id", "amount") VALUES (NULL, '2011-11-06 21:54:04.116426', NULL, NULL, '2011-11-06 21:54:04.116426', NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "games" SET "updated_at" = '2011-11-06 21:54:04.132223', "session_num" = 47, "user_id" = 25, "amount" = 200.0 WHERE "games"."id" = 64[0m
+Rendered cardtable/_form.html.erb (45.1ms)
+Rendered cardtable/fresh.html.erb within layouts/application (47.8ms)
+Completed 500 Internal Server Error in 229ms
+
+ActionView::Template::Error (undefined method `image' for nil:NilClass):
+    1: <%= image_tag  @cardtable.player.hand[0].image %>
+    2: <%= image_tag  @cardtable.player.hand[1].image %></br>
+    3: <%= image_tag  @cardtable.dealer.hand[0].image %>
+    4: <%= image_tag  @cardtable.dealer.hand[1].image %>
+    5: 
+  app/views/cardtable/_form.html.erb:2:in `_app_views_cardtable__form_html_erb__618253174__613336998_539536'
+  app/views/cardtable/fresh.html.erb:3:in `_app_views_cardtable_fresh_html_erb___894103080__613323768_0'
+  app/controllers/cardtable_controller.rb:7:in `fresh'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.5ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 21:54:25 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 21:54:25.640771', "num_sessions" = 55 WHERE "users"."id" = 26
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 21:54:25.654554', "num_sessions" = 48 WHERE "users"."id" = 25[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "games" ("dealer_count", "num_cards", "username", "date_time", "created_at", "updated_at", "game_num", "amount", "user_id", "session_num", "win", "card_count") VALUES (NULL, NULL, NULL, NULL, '2011-11-06 21:54:25.677695', '2011-11-06 21:54:25.677695', NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "games" SET "updated_at" = '2011-11-06 21:54:25.692901', "amount" = 200.0, "user_id" = 25, "session_num" = 48 WHERE "games"."id" = 65[0m
+Rendered cardtable/_form.html.erb (1.6ms)
+Rendered cardtable/fresh.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 175ms (Views: 8.9ms | ActiveRecord: 1.2ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20111031201826)
+Migrating to CreateGames (20111031202143)
+Migrating to CreateUserSessions (20111031210352)
+Migrating to CreateCardtables (20111103203253)
+Migrating to AddGamerstuffToCardtable (20111105141459)
+Migrating to AddDealerstuffToGame (20111106220337)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1mALTER TABLE "games" ADD "dealer_game_num" integer[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "games" ADD "dealer_card_count" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111106220337')[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("cardtables")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("games")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("user_sessions")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to AddDealerstuffToGame (20111106220337)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (44.7ms)[0m  [1mCREATE TEMPORARY TABLE "altered_games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "session_num" integer, "game_num" integer, "win" boolean, "amount" decimal, "num_cards" integer, "card_count" integer, "dealer_count" integer, "date_time" datetime, "created_at" datetime, "updated_at" datetime, "username" varchar(255), "dealer_game_num" integer, "dealer_card_count" integer) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("games")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "games"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "session_num" integer, "game_num" integer, "win" boolean, "amount" decimal, "num_cards" integer, "card_count" integer, "dealer_count" integer, "date_time" datetime, "created_at" datetime, "updated_at" datetime, "username" varchar(255), "dealer_game_num" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("altered_games")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_games"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "session_num" integer, "game_num" integer, "win" boolean, "amount" decimal, "num_cards" integer, "card_count" integer, "dealer_count" integer, "date_time" datetime, "created_at" datetime, "updated_at" datetime, "username" varchar(255), "dealer_game_num" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("games")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "games"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "session_num" integer, "game_num" integer, "win" boolean, "amount" decimal, "num_cards" integer, "card_count" integer, "dealer_count" integer, "date_time" datetime, "created_at" datetime, "updated_at" datetime, "username" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_games")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_games"
+  [1m[36mAREL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20111106220337'[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("cardtables")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("games")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("user_sessions")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20111031201826)
+Migrating to CreateGames (20111031202143)
+Migrating to CreateUserSessions (20111031210352)
+Migrating to CreateCardtables (20111103203253)
+Migrating to AddGamerstuffToCardtable (20111105141459)
+Migrating to AddDealerstuffToGame (20111106220337)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "games" ADD "dealer_game_num" integer[0m
+  [1m[35mSQL (0.1ms)[0m  ALTER TABLE "games" ADD "dealer_card_count" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111106220337')[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("cardtables")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("games")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("user_sessions")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20111031201826)
+Migrating to CreateGames (20111031202143)
+Migrating to CreateUserSessions (20111031210352)
+Migrating to CreateCardtables (20111103203253)
+Migrating to AddGamerstuffToCardtable (20111105141459)
+Migrating to AddDealerstuffToGame (20111106220337)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("cardtables")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("games")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("user_sessions")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20111031201826)
+Migrating to CreateGames (20111031202143)
+Migrating to CreateUserSessions (20111031210352)
+Migrating to CreateCardtables (20111103203253)
+Migrating to AddGamerstuffToCardtable (20111105141459)
+Migrating to AddDealerstuffToGame (20111106220337)
+Migrating to RemoveDealercardcountFromGame (20111106220928)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TEMPORARY TABLE "altered_games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "session_num" integer, "game_num" integer, "win" boolean, "amount" decimal, "num_cards" integer, "card_count" integer, "dealer_count" integer, "date_time" datetime, "created_at" datetime, "updated_at" datetime, "username" varchar(255), "dealer_game_num" integer, "dealer_card_count" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("games")
+  [1m[36mSQL (0.4ms)[0m  [1mDROP TABLE "games"[0m
+  [1m[35mSQL (5.3ms)[0m  CREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "session_num" integer, "game_num" integer, "win" boolean, "amount" decimal, "num_cards" integer, "card_count" integer, "dealer_count" integer, "date_time" datetime, "created_at" datetime, "updated_at" datetime, "username" varchar(255), "dealer_game_num" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("altered_games")[0m
+  [1m[35mSQL (0.3ms)[0m  DROP TABLE "altered_games"
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111106220928')[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (5.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("cardtables")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("games")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("user_sessions")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20111031201826)
+Migrating to CreateGames (20111031202143)
+Migrating to CreateUserSessions (20111031210352)
+Migrating to CreateCardtables (20111103203253)
+Migrating to AddGamerstuffToCardtable (20111105141459)
+Migrating to AddDealerstuffToGame (20111106220337)
+Migrating to RemoveDealercardcountFromGame (20111106220928)
+Migrating to AddmoreealerstuffToGame (20111106221021)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111106221021')[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("cardtables")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("games")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("user_sessions")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20111031201826)
+Migrating to CreateGames (20111031202143)
+Migrating to CreateUserSessions (20111031210352)
+Migrating to CreateCardtables (20111103203253)
+Migrating to AddGamerstuffToCardtable (20111105141459)
+Migrating to AddDealerstuffToGame (20111106220337)
+Migrating to RemoveDealercardcountFromGame (20111106220928)
+Migrating to AddmoreealerstuffToGame (20111106221021)
+Migrating to AddDealernumcardsToGame (20111106221342)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "games" ADD "dealer_num_cards" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111106221342')
+  [1m[36mSQL (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("cardtables")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("games")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("user_sessions")[0m
+  [1m[35mSQL (0.6ms)[0m  PRAGMA index_list("users")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 22:55:38 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 22:55:39.095905', "num_sessions" = 56 WHERE "users"."id" = 26
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 22:55:39.123148', "num_sessions" = 49 WHERE "users"."id" = 25[0m
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO "games" ("user_id", "win", "dealer_count", "num_cards", "session_num", "amount", "updated_at", "created_at", "game_num", "username", "dealer_num_cards", "card_count", "date_time", "dealer_game_num") VALUES (25, 'f', 0, 0, 49, 0.0, '2011-11-06 22:55:39.150767', '2011-11-06 22:55:39.150767', 0, NULL, 0, 0, NULL, 0)
+Rendered cardtable/_form.html.erb (1.0ms)
+Rendered cardtable/fresh.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 188ms (Views: 10.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 22:55:40 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "num_sessions" = 57, "updated_at" = '2011-11-06 22:55:40.627239' WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "num_sessions" = 50, "updated_at" = '2011-11-06 22:55:40.685306' WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("dealer_game_num", "game_num", "num_cards", "session_num", "win", "username", "created_at", "date_time", "amount", "dealer_count", "user_id", "dealer_num_cards", "updated_at", "card_count") VALUES (0, 0, 0, 50, 'f', NULL, '2011-11-06 22:55:40.709001', NULL, 0.0, 0, 25, 0, '2011-11-06 22:55:40.709001', 0)[0m
+Rendered cardtable/_form.html.erb (1.2ms)
+Rendered cardtable/fresh.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 155ms (Views: 11.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 22:55:41 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "num_sessions" = 58, "updated_at" = '2011-11-06 22:55:42.012756' WHERE "users"."id" = 26
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "num_sessions" = 51, "updated_at" = '2011-11-06 22:55:42.028196' WHERE "users"."id" = 25[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "games" ("date_time", "amount", "card_count", "created_at", "session_num", "dealer_game_num", "win", "num_cards", "user_id", "game_num", "username", "updated_at", "dealer_count", "dealer_num_cards") VALUES (NULL, 0.0, 0, '2011-11-06 22:55:42.054074', 51, 0, 'f', 0, 25, 0, NULL, '2011-11-06 22:55:42.054074', 0, 0)
+Rendered cardtable/_form.html.erb (1.2ms)
+Rendered cardtable/fresh.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 111ms (Views: 9.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 22:57:57 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 22:57:57.989833', "num_sessions" = 59 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 22:57:58.353436', "num_sessions" = 52 WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("card_count", "user_id", "num_cards", "dealer_game_num", "dealer_num_cards", "date_time", "session_num", "dealer_count", "game_num", "updated_at", "created_at", "win", "amount", "username") VALUES (0, 25, 0, 0, 0, NULL, 52, 0, 0, '2011-11-06 22:57:58.423753', '2011-11-06 22:57:58.423753', 'f', 0.0, NULL)[0m
+Rendered cardtable/_form.html.erb (1.2ms)
+Rendered cardtable/fresh.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 542ms (Views: 9.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:00:05 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "num_sessions" = 60, "updated_at" = '2011-11-06 23:00:05.918042' WHERE "users"."id" = 26
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "users" SET "num_sessions" = 53, "updated_at" = '2011-11-06 23:00:05.937028' WHERE "users"."id" = 25[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "games" ("session_num", "updated_at", "game_num", "card_count", "dealer_num_cards", "amount", "username", "dealer_game_num", "num_cards", "date_time", "user_id", "win", "created_at", "dealer_count") VALUES (53, '2011-11-06 23:00:05.962626', 0, 0, 0, 0.0, NULL, 0, 0, NULL, 25, 'f', '2011-11-06 23:00:05.962626', 0)
+Rendered cardtable/_form.html.erb (1.0ms)
+Rendered cardtable/fresh.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 111ms (Views: 8.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:00:09 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "num_sessions" = 61, "updated_at" = '2011-11-06 23:00:09.106487' WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "num_sessions" = 54, "updated_at" = '2011-11-06 23:00:09.121222' WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("win", "created_at", "dealer_game_num", "game_num", "amount", "dealer_count", "date_time", "dealer_num_cards", "updated_at", "card_count", "username", "num_cards", "user_id", "session_num") VALUES ('f', '2011-11-06 23:00:09.145042', 0, 0, 0.0, 0, NULL, 0, '2011-11-06 23:00:09.145042', 0, NULL, 0, 25, 54)[0m
+Rendered cardtable/_form.html.erb (1.1ms)
+Rendered cardtable/fresh.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 96ms (Views: 9.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:00:39 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "num_sessions" = 62, "updated_at" = '2011-11-06 23:00:39.327870' WHERE "users"."id" = 26
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "num_sessions" = 55, "updated_at" = '2011-11-06 23:00:39.343220' WHERE "users"."id" = 25[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "games" ("win", "updated_at", "card_count", "dealer_num_cards", "session_num", "game_num", "username", "date_time", "user_id", "num_cards", "dealer_game_num", "created_at", "amount", "dealer_count") VALUES ('f', '2011-11-06 23:00:39.366998', 0, 0, 55, 0, NULL, NULL, 25, 0, 0, '2011-11-06 23:00:39.366998', 0.0, 0)
+Rendered cardtable/_form.html.erb (1.1ms)
+Rendered cardtable/fresh.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 100ms (Views: 9.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:01:07 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 23:01:08.038984', "num_sessions" = 63 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 23:01:08.099845', "num_sessions" = 56 WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("username", "win", "user_id", "num_cards", "session_num", "dealer_game_num", "game_num", "dealer_count", "amount", "dealer_num_cards", "card_count", "created_at", "updated_at", "date_time") VALUES (NULL, 'f', 25, 0, 56, 0, 0, 0, 0.0, 0, 0, '2011-11-06 23:01:08.155659', '2011-11-06 23:01:08.155659', NULL)[0m
+Rendered cardtable/_form.html.erb (1.3ms)
+Rendered cardtable/fresh.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 202ms (Views: 9.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:01:15 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "num_sessions" = 64, "updated_at" = '2011-11-06 23:01:15.860058' WHERE "users"."id" = 26
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "num_sessions" = 57, "updated_at" = '2011-11-06 23:01:15.934053' WHERE "users"."id" = 25[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "games" ("user_id", "win", "username", "date_time", "session_num", "amount", "updated_at", "dealer_game_num", "game_num", "dealer_num_cards", "card_count", "created_at", "dealer_count", "num_cards") VALUES (25, 'f', NULL, NULL, 57, 0.0, '2011-11-06 23:01:15.975965', 0, 0, 0, 0, '2011-11-06 23:01:15.975965', 0, 0)
+Rendered cardtable/_form.html.erb (0.8ms)
+Rendered cardtable/fresh.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 179ms (Views: 9.4ms | ActiveRecord: 1.5ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/lvl9/Test/blackjack/config/environment.rb:5)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20111031201826)
+Migrating to CreateGames (20111031202143)
+Migrating to CreateUserSessions (20111031210352)
+Migrating to CreateCardtables (20111103203253)
+Migrating to AddGamerstuffToCardtable (20111105141459)
+Migrating to AddDealerstuffToGame (20111106220337)
+Migrating to RemoveDealercardcountFromGame (20111106220928)
+Migrating to AddmoreealerstuffToGame (20111106221021)
+Migrating to AddDealernumcardsToGame (20111106221342)
+Migrating to AddDealersessionumToGame (20111106230256)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "games" ADD "dealer_session_num" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111106230256')
+  [1m[36mSQL (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("cardtables")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("games")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("user_sessions")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:06:07 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 23:06:07.897455', "num_sessions" = 65 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 23:06:08.256215', "num_sessions" = 58 WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("user_id", "win", "card_count", "username", "dealer_session_num", "dealer_num_cards", "game_num", "dealer_count", "amount", "num_cards", "date_time", "session_num", "created_at", "dealer_game_num", "updated_at") VALUES (25, 'f', 0, NULL, 65, 0, 0, 0, 0.0, 0, NULL, 58, '2011-11-06 23:06:08.324180', 0, '2011-11-06 23:06:08.324180')[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "games" SET "game_num" = 1, "num_cards" = 2, "dealer_game_num" = 1, "updated_at" = '2011-11-06 23:06:08.369689' WHERE "games"."id" = 75
+Rendered cardtable/_form.html.erb (1.1ms)
+Rendered cardtable/fresh.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 528ms (Views: 8.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:07:11 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 23:07:11.783292', "num_sessions" = 66 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 23:07:11.847493', "num_sessions" = 59 WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("num_cards", "win", "updated_at", "user_id", "created_at", "username", "date_time", "dealer_num_cards", "session_num", "game_num", "dealer_game_num", "card_count", "dealer_count", "dealer_session_num", "amount") VALUES (0, 'f', '2011-11-06 23:07:11.880337', 25, '2011-11-06 23:07:11.880337', NULL, NULL, 0, 59, 0, 0, 0, 0, 66, 0.0)[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "users" SET "games_lost" = 1, "games_played" = 1, "updated_at" = '2011-11-06 23:07:11.895455' WHERE "users"."id" = 25
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "users" SET "games_played" = 1, "updated_at" = '2011-11-06 23:07:11.907701', "games_won" = 1 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "games" SET "num_cards" = 2, "updated_at" = '2011-11-06 23:07:11.921609', "game_num" = 1, "dealer_game_num" = 1 WHERE "games"."id" = 76
+Rendered cardtable/_form.html.erb (1.3ms)
+Rendered cardtable/fresh.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 244ms (Views: 9.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:07:44 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "num_sessions" = 67, "updated_at" = '2011-11-06 23:07:44.944455' WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "num_sessions" = 60, "updated_at" = '2011-11-06 23:07:45.280648' WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("dealer_num_cards", "updated_at", "win", "date_time", "dealer_session_num", "game_num", "dealer_count", "user_id", "num_cards", "dealer_game_num", "username", "session_num", "card_count", "amount", "created_at") VALUES (0, '2011-11-06 23:07:45.364965', 'f', NULL, 67, 0, 0, 25, 0, 0, NULL, 60, 0, 0.0, '2011-11-06 23:07:45.364965')[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "games_played" = 2, "games_lost" = 2, "updated_at" = '2011-11-06 23:07:45.384134' WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "games_played" = 2, "games_won" = 2, "updated_at" = '2011-11-06 23:07:45.399575' WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "games" SET "updated_at" = '2011-11-06 23:07:45.411232', "game_num" = 2, "num_cards" = 2, "dealer_game_num" = 2 WHERE "games"."id" = 77
+Rendered cardtable/_form.html.erb (2.0ms)
+Rendered cardtable/fresh.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 526ms (Views: 9.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:11:27 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 23:11:27.218032', "num_sessions" = 68 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 23:11:27.289138', "num_sessions" = 61 WHERE "users"."id" = 25
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "games" ("date_time", "game_num", "created_at", "num_cards", "win", "dealer_num_cards", "updated_at", "dealer_game_num", "amount", "username", "card_count", "dealer_session_num", "user_id", "session_num", "dealer_count") VALUES (NULL, 0, '2011-11-06 23:11:27.316868', 0, 'f', 0, '2011-11-06 23:11:27.316868', 0, 0.0, NULL, 0, 68, 25, 61, 0)[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 23:11:27.332974', "games_lost" = 3, "games_played" = 3 WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 23:11:27.344711', "games_played" = 3, "games_won" = 3 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "games" SET "game_num" = 3, "num_cards" = 2, "updated_at" = '2011-11-06 23:11:27.358128', "dealer_game_num" = 3 WHERE "games"."id" = 78
+Rendered cardtable/_form.html.erb (1.6ms)
+Rendered cardtable/fresh.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 200ms (Views: 12.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:12:33 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 23:12:33.091253', "num_sessions" = 69 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 23:12:33.148917', "num_sessions" = 62 WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("dealer_game_num", "num_cards", "updated_at", "card_count", "dealer_session_num", "dealer_count", "user_id", "dealer_num_cards", "game_num", "username", "date_time", "amount", "session_num", "win", "created_at") VALUES (0, 0, '2011-11-06 23:12:33.182093', 0, 69, 0, 25, 0, 0, NULL, NULL, 0.0, 62, 'f', '2011-11-06 23:12:33.182093')[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "games_played" = 4, "updated_at" = '2011-11-06 23:12:33.198338', "games_lost" = 4 WHERE "users"."id" = 25
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "users" SET "games_played" = 4, "updated_at" = '2011-11-06 23:12:33.209298', "games_won" = 4 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "games" SET "dealer_game_num" = 4, "num_cards" = 2, "updated_at" = '2011-11-06 23:12:33.220633', "game_num" = 4 WHERE "games"."id" = 79
+Rendered cardtable/_form.html.erb (1.1ms)
+Rendered cardtable/fresh.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 202ms (Views: 8.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:16:09 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 23:16:10.115651', "num_sessions" = 70 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 23:16:10.128905', "num_sessions" = 63 WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("session_num", "user_id", "win", "dealer_num_cards", "updated_at", "dealer_session_num", "card_count", "date_time", "amount", "num_cards", "created_at", "dealer_count", "dealer_game_num", "game_num", "username") VALUES (63, 25, 'f', 0, '2011-11-06 23:16:10.155036', 70, 0, NULL, 0.0, 0, '2011-11-06 23:16:10.155036', 0, 0, 0, NULL)[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "games_lost" = 5, "games_played" = 5, "updated_at" = '2011-11-06 23:16:10.169539' WHERE "users"."id" = 25
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "users" SET "games_played" = 5, "updated_at" = '2011-11-06 23:16:10.181711', "games_won" = 5 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "games" SET "updated_at" = '2011-11-06 23:16:10.194712', "num_cards" = 2, "dealer_game_num" = 5, "game_num" = 5 WHERE "games"."id" = 80
+Rendered cardtable/_form.html.erb (2.1ms)
+Rendered cardtable/fresh.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 207ms (Views: 11.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:16:50 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 23:16:50.150999', "num_sessions" = 71 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 23:16:50.165572', "num_sessions" = 64 WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("user_id", "amount", "card_count", "dealer_count", "dealer_game_num", "date_time", "dealer_session_num", "dealer_num_cards", "game_num", "username", "session_num", "num_cards", "win", "created_at", "updated_at") VALUES (25, 0.0, 0, 0, 0, NULL, 71, 0, 0, NULL, 64, 0, 'f', '2011-11-06 23:16:50.237251', '2011-11-06 23:16:50.237251')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "users" SET "games_lost" = 6, "updated_at" = '2011-11-06 23:16:50.251656', "games_played" = 6 WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "games_won" = 6, "updated_at" = '2011-11-06 23:16:50.263041', "games_per_session_avg" = 1, "games_played" = 6 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "games" SET "dealer_game_num" = 6, "game_num" = 6, "num_cards" = 2, "updated_at" = '2011-11-06 23:16:50.276564' WHERE "games"."id" = 81
+Rendered cardtable/_form.html.erb (2.0ms)
+Rendered cardtable/fresh.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 184ms (Views: 10.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:17:17 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 23:17:17.749472', "num_sessions" = 72 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 23:17:17.766175', "num_sessions" = 65 WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("username", "updated_at", "dealer_game_num", "game_num", "num_cards", "session_num", "user_id", "win", "dealer_session_num", "dealer_count", "date_time", "amount", "created_at", "dealer_num_cards", "card_count") VALUES (NULL, '2011-11-06 23:17:17.792374', 0, 0, 0, 65, 25, 'f', 72, 0, NULL, 0.0, '2011-11-06 23:17:17.792374', 0, 0)[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "users" SET "games_lost" = 7, "games_played" = 7, "updated_at" = '2011-11-06 23:17:17.808133' WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "games_played" = 7, "updated_at" = '2011-11-06 23:17:17.820665', "games_won" = 7 WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "games" SET "updated_at" = '2011-11-06 23:17:17.832482', "dealer_game_num" = 7, "game_num" = 7, "num_cards" = 2 WHERE "games"."id" = 82
+Rendered cardtable/_form.html.erb (1.2ms)
+Rendered cardtable/fresh.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 141ms (Views: 8.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:18:09 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "num_sessions" = 73, "updated_at" = '2011-11-06 23:18:09.787411' WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "users" SET "num_sessions" = 66, "updated_at" = '2011-11-06 23:18:09.801296' WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("user_id", "date_time", "dealer_session_num", "dealer_count", "card_count", "username", "updated_at", "created_at", "session_num", "win", "num_cards", "amount", "game_num", "dealer_num_cards", "dealer_game_num") VALUES (25, NULL, 73, 0, 0, NULL, '2011-11-06 23:18:09.825229', '2011-11-06 23:18:09.825229', 66, 'f', 0, 0.0, 0, 0, 0)[0m
+Completed 500 Internal Server Error in 92ms
+
+NoMethodError (undefined method `games_per_session_ag=' for "#<User:0xb6f68dc4>":User):
+  app/models/cardtable.rb:102:in `deal'
+  app/models/cardtable.rb:62:in `startup'
+  app/controllers/cardtable_controller.rb:5:in `fresh'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.8ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:23:54 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "updated_at" = '2011-11-06 23:23:54.941931', "num_sessions" = 74 WHERE "users"."id" = 26
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-11-06 23:23:54.956838', "num_sessions" = 67 WHERE "users"."id" = 25[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "games" ("dealer_game_num", "dealer_count", "date_time", "created_at", "amount", "session_num", "game_num", "num_cards", "win", "username", "dealer_session_num", "dealer_num_cards", "user_id", "card_count", "updated_at") VALUES (0, 0, NULL, '2011-11-06 23:23:54.983220', 0.0, 67, 0, 0, 'f', NULL, 74, 0, 25, 0, '2011-11-06 23:23:54.983220')
+Completed 500 Internal Server Error in 153ms
+
+NoMethodError (undefined method `games_per_session=' for "#<User:0xb705bf9c>":User):
+  app/models/cardtable.rb:101:in `deal'
+  app/models/cardtable.rb:62:in `startup'
+  app/controllers/cardtable_controller.rb:5:in `fresh'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.1ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.4ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:24:14 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "num_sessions" = 75, "updated_at" = '2011-11-06 23:24:14.256715' WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "users" SET "num_sessions" = 68, "updated_at" = '2011-11-06 23:24:14.280001' WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "games" ("game_num", "dealer_session_num", "date_time", "updated_at", "user_id", "dealer_count", "session_num", "win", "dealer_num_cards", "username", "card_count", "created_at", "dealer_game_num", "amount", "num_cards") VALUES (0, 75, NULL, '2011-11-06 23:24:14.305478', 25, 0, 68, 'f', 0, NULL, 0, '2011-11-06 23:24:14.305478', 0, 0.0, 0)[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "users" SET "games_per_session_avg" = 1, "games_played" = 8, "games_lost" = 8, "updated_at" = '2011-11-06 23:24:14.319676' WHERE "users"."id" = 25
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "users" SET "games_won" = 8, "games_played" = 8, "updated_at" = '2011-11-06 23:24:14.331689' WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE "games" SET "game_num" = 8, "updated_at" = '2011-11-06 23:24:14.383776', "dealer_game_num" = 8, "num_cards" = 2 WHERE "games"."id" = 85
+Rendered cardtable/_form.html.erb (1.2ms)
+Rendered cardtable/fresh.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 191ms (Views: 12.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/fresh" for 127.0.0.1 at Sun Nov 06 23:24:28 +0000 2011
+  Processing by CardtableController#fresh as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 26 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "num_sessions" = 76, "updated_at" = '2011-11-06 23:24:28.928576' WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "num_sessions" = 69, "updated_at" = '2011-11-06 23:24:29.000848' WHERE "users"."id" = 25
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "games" ("dealer_num_cards", "created_at", "user_id", "amount", "date_time", "updated_at", "dealer_session_num", "dealer_count", "dealer_game_num", "win", "game_num", "card_count", "session_num", "username", "num_cards") VALUES (0, '2011-11-06 23:24:29.079967', 25, 0.0, NULL, '2011-11-06 23:24:29.079967', 76, 0, 0, 'f', 0, 0, 69, NULL, 0)[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "users" SET "games_played" = 9, "games_lost" = 9, "updated_at" = '2011-11-06 23:24:29.116936' WHERE "users"."id" = 25
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "users" SET "games_won" = 9, "games_played" = 9, "updated_at" = '2011-11-06 23:24:29.131505' WHERE "users"."id" = 26[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "games" SET "updated_at" = '2011-11-06 23:24:29.146771', "dealer_game_num" = 9, "game_num" = 9, "num_cards" = 2 WHERE "games"."id" = 86
+Rendered cardtable/_form.html.erb (2.0ms)
+Rendered cardtable/fresh.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 279ms (Views: 9.5ms | ActiveRecord: 1.9ms)
