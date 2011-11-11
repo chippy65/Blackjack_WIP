@@ -59,7 +59,7 @@ class Cardtable < ActiveRecord::Base
     # Dummy test stuff
 
     # Dummy deal
-    self.deal
+#    self.deal
   end
 
   def setBet(amount)
@@ -69,6 +69,7 @@ class Cardtable < ActiveRecord::Base
 
   def deal
     # This is the beginning of a new game
+
     # Deal 2 cards to both the dealer and the player
     self.deck.deal(self.player)
     self.deck.deal(self.player)
@@ -125,6 +126,22 @@ class Cardtable < ActiveRecord::Base
 
     self.game.save
 
+  end
+
+  def hit
+    # This is where the player gets another card
+
+    # Deal another card to the player
+    self.deck.deal(self.player)
+
+    # Update the stats and save
+    self.game.num_cards += 1
+    self.game.card_count = 0
+    self.game.save
+
+    # Check if the player has bust
+
+    # If the player is bust then end the game
   end
 
   def shuffle

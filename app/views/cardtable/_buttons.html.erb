@@ -1,0 +1,10 @@
+<%= form_tag ({ :action => 'buttonClick' }) %>
+  <% dealStatus =  @cardtable.game.num_cards > 0 ? true : false %>
+  <%= submit_tag "Deal", :name => "submit", :disabled => dealStatus %>
+  <%= submit_tag "Hit", :name => "submit" %>
+  <%= submit_tag "Stand", :name => "submit" %>
+  <%= submit_tag "Double", :name => "submit" %>
+  <% shuffleStatus =  @cardtable.game.num_cards == 0 ? false : true %>
+  <%= submit_tag "Shuffle", :name => "submit", :disabled => shuffleStatus %>
+  <%= image_tag "/images/chips.jpg" %>
+<% form_tag %>
